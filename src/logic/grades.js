@@ -1,4 +1,4 @@
-const gradeSlab = [
+export const gradeSlab = [
     {
         grade_rep: 'S',
         gradePoints: 10,
