@@ -60,8 +60,11 @@ function generateSgpa(existingSubjects, newSubjects){
     };
 }
 
-function generateCgpa(currentCgpa , totalCredits){
-
+function generateCgpa(currentCgpa, cumulatedCredits, sgpa){
+    const totalCreditPoints = (currentCgpa * cumulatedCredits) + sgpa['semesterCreditPoints'];
+    const totalCredits = cumulatedCredits + sgpa['semesterCredits'];
+    return (totalCreditPoints/totalCredits).toFixed(2);
 }
 console.log(gradePointsFinder('s'));
 console.log(generateSgpa(existingSubjects,newSubjects));
+console.log(generateCgpa(9.65 , 22 , generateSgpa(existingSubjects, newSubjects)));
