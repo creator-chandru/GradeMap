@@ -52,12 +52,16 @@ function generateSgpa(existingSubjects, newSubjects){
         return creditSum + subj.credit;
     },0);
 
-    const sgpa = ( totalCreditPoints / totalCredits ).toFixed(2);
+    const sgpa = ( semesterCreditPoints / semesterCredits ).toFixed(2);
     return {
         semesterCreditPoints: semesterCreditPoints,
         semesterCredits: semesterCredits,
         sgpa: sgpa
     };
+}
+
+function generateCgpa(currentCgpa , totalCredits){
+
 }
 console.log(gradePointsFinder('s'));
 console.log(generateSgpa(existingSubjects,newSubjects));
