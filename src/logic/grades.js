@@ -84,17 +84,22 @@ function calculateRequiredMark(internal , type){
         expectedResult.gradeStatus = grade.grade_rep;
         const required_endsem_mark = grade.minimumMarks - internal;
         let endsem_scaled_mark;
-        if(type.toLowerCase() === 't'){
+        if(type.toLowerCase() === 't' && internal <= 40){
             endsem_scaled_mark = 60;
         }
-        else if(type.toLowerCase() === 'i'){
+        else if(type.toLowerCase() === 'i' && internal <= 50){
             endsem_scaled_mark = 50;
         }
         else{
             console.log("Enter valid course type");
+            return null;
         }
         const raw_endsem_mark = ((required_endsem_mark/endsem_scaled_mark) * 100);
-        expectedResult.marksRequired = Math.ceil(raw_endsem_mark);
+        if(Math.ceil(raw_endsem_mark) < 45){
+            expectedResult.marksRequired = 45;
+        }else{
+            expectedResult.marksRequired = Math.ceil(raw_endsem_mark);
+        }
         if(raw_endsem_mark > 100){
             expectedResult.possibility = 'Impossible!';
         }
