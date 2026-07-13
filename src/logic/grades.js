@@ -31,7 +31,7 @@ export const gradeSlab = [
     },
 ];
 
-function getGradeFromTotal(total){
+export function getGradeFromTotal(total){
     const grades = {
         gradePoints : 0,
         grade: ''
@@ -73,7 +73,7 @@ function getGradeFromTotal(total){
 
 console.log(getGradeFromTotal(100));
 
-function calculateRequiredMark(internal , type){
+export function calculateRequiredMark(internal , type){
     
     const mixedGrades = gradeSlab.map((grade)=>{
         const expectedResult = {
