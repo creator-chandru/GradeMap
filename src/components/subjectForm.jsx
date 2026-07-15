@@ -51,7 +51,7 @@ export function SubjectForm(){
             </label>
             <button type = "submit"> + Add Subject</button>
         </form>
-        {(!errorMessage) ? '' : <p>{errorMessage}</p>}
+        {(!errorMessage) ? '' : <p className="text-red-500" >{errorMessage}</p>}
         {
             subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
         }
