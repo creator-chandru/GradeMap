@@ -5,11 +5,11 @@ export function SubjectList(props){
         });
     }
 
+    console.log(props.subjects);
     return(
         <section>
             <div className = "list-container">
                 {addToList(props.subjects)}
-
             </div>
         </section>
     );
