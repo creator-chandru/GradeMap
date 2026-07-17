@@ -2,10 +2,8 @@ import {useState} from 'react';
 import { SubjectList } from './subjectList';
 import { RequiredMarks } from './requiredMarksTable';
 
-export function SubjectForm(){
-    const [subjectsList, setSubjectsList] = useState([]);
+export function SubjectForm(props){
     const [errorMessage, setErrorMessage] = useState('');
-    const [table, setTable] = useState(false);
 
     function handleFormSubject(formData){
         const newSubject = formData.get('subjectCode');
@@ -27,12 +25,13 @@ export function SubjectForm(){
                 subjectType : newType,
                 subjectInternalMarks : newInternalMarks 
             };
-            setSubjectsList((prevSubjectsList)=>{
+            props.setSubjectsList((prevSubjectsList)=>{
                 return [...prevSubjectsList, newSubmission];
             });
             setErrorMessage((prevErrorMessage) => null);
         }
     }
+    
     return (
         <main>
             <form action = {handleFormSubject}>
@@ -54,12 +53,6 @@ export function SubjectForm(){
             <button type = "submit"> + Add Subject</button>
         </form>
         {(!errorMessage) ? '' : <p className="text-red-500" >{errorMessage}</p>}
-
-        <button type="button" onClick = {() => setTable(true)}>Check Required Marks</button>
-        {table && <RequiredMarks subjects = {subjectsList}/>}
-        {
-            subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
-        }
         </main> 
     );
 }

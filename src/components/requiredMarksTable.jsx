@@ -15,7 +15,4 @@ export function RequiredMarks(props){
             {calculateMarks(props.subjects)};
         </div>
     );
-    
-
-
 }
