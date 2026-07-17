@@ -4,8 +4,6 @@ export function SubjectList(props){
             return <div key = {subj.subjectCode} className = "subject-div">{subj.subjectCode} , {subj.subjectCredit} , {subj.subjectType} , {subj.subjectInternalMarks}</div>
         });
     }
-
-    console.log(props.subjects);
     return(
         <section>
             <div className = "list-container">

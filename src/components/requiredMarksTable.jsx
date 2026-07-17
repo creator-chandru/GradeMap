@@ -1,18 +1,39 @@
 import { calculateRequiredMark } from "../logic/grades";
 
 export function RequiredMarks(props){
-    function calculateMarks(subjects){
+    function displaySubjects(subjects){
         return subjects.map((subject) => {
-            const subjectMarks =  calculateRequiredMark(subject.subjectInternalMarks, subject.subjectType);
-            return subjectMarks.map((subjectGrade)=>{
-                return <div className = "mark-div">{subjectGrade.gradeStatus}, {subjectGrade.possibility}, {subjectGrade.marksRequired}</div>
-            });
+            return (
+                <tr key = {subject.subjectCode}>
+                    <td>{subject.subjectCode}</td>
+                    <td>{subject.subjectCredit}</td>
+                    <td>{subject.subjectType}</td>
+                    <td><select name="grade">
+                        <option value = "S">S</option>
+                        <option value = "A+" selected>A+</option>
+                        <option value = "A">A</option>
+                        <option value = "B+">B+</option>
+                        <option value = "B">B</option>
+                        <option value = "C">C</option>
+                    </select></td>
+                </tr>
+            );
         });
     }
-
     return (
-        <div>
-            {calculateMarks(props.subjects)};
-        </div>
+        <table> 
+            <thead>
+                <tr>
+                    <th>Name/Code</th>
+                    <th>Credits</th>
+                    <th>Type</th>
+                    <th>Desired Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {displaySubjects(props.subjects)}
+            </tbody>
+            
+        </table>
     );
 }
