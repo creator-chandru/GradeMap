@@ -16,7 +16,7 @@ export function App() {
       }
       <button type="button" onClick = {() => setTable(true)}>Check Required Marks</button>
       {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject} setSelectedSubject = {setSelectedSubject}/>}
-      {selectedSubject && <MarksEstimator selectedSubject = {selectedSubject}/>}
+      {table && (selectedSubject || subjectsList[0]) && <MarksEstimator selectedSubject = {selectedSubject || subjectsList[0]}/>}
     </>
   );
 }
