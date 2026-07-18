@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import { SubjectList } from './subjectList';
-import { RequiredMarks } from './requiredMarksTable';
 
 export function SubjectForm(props){
     const [errorMessage, setErrorMessage] = useState('');

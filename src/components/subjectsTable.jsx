@@ -1,16 +1,16 @@
 import { calculateRequiredMark } from "../logic/grades";
 
-export function RequiredMarks(props){
+export function SubjectTable(props){
     function displaySubjects(subjects){
         return subjects.map((subject) => {
             return (
-                <tr key = {subject.subjectCode}>
+                <tr key = {subject.subjectCode} onClick = {() => props.setSelectedSubject(subject)}>
                     <td>{subject.subjectCode}</td>
                     <td>{subject.subjectCredit}</td>
                     <td>{subject.subjectType}</td>
-                    <td><select name="grade">
+                    <td><select name="grade" defaultValue="A">
                         <option value = "S">S</option>
-                        <option value = "A+" selected>A+</option>
+                        <option value = "A+">A+</option>
                         <option value = "A">A</option>
                         <option value = "B+">B+</option>
                         <option value = "B">B</option>
@@ -33,7 +33,6 @@ export function RequiredMarks(props){
             <tbody>
                 {displaySubjects(props.subjects)}
             </tbody>
-            
         </table>
     );
 }

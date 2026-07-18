@@ -2,11 +2,12 @@ import {useState} from 'react';
 import { calculateRequiredMark } from "./logic/grades";
 import { SubjectForm } from "./components/subjectForm";
 import { SubjectList } from "./components/subjectList";
-import { RequiredMarks } from './components/requiredMarksTable';
-
+import { SubjectTable } from './components/subjectsTable';
+import { MarksEstimator } from './components/marksEstimator';
 export function App() {
   const [subjectsList, setSubjectsList] = useState([]);
   const [table, setTable] = useState(false);
+  const [selectedSubject, setSelectedSubject] = useState('');
   return (
     <>
       <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
@@ -14,7 +15,8 @@ export function App() {
         subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
       }
       <button type="button" onClick = {() => setTable(true)}>Check Required Marks</button>
-      {(table && subjectsList.length >0) && <RequiredMarks subjects = {subjectsList}/>}
+      {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject} setSelectedSubject = {setSelectedSubject}/>}
+      {selectedSubject && <MarksEstimator selectedSubject = {selectedSubject}/>}
     </>
   );
 }
