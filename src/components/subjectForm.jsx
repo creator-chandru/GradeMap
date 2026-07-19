@@ -5,7 +5,7 @@ export function SubjectForm(props){
     const [errorMessage, setErrorMessage] = useState('');
 
     const inputStyles = "bg-state-900 text-yellow-400 placeholder:text-yellow-400 rounded-lg px-4 py-3 border border-slate-700" ;
-    const labelStyles = "text-yellow-600 px-3 py-3 flex items-center gap-2.5 m-2";
+    const labelStyles = "text-lg text-yellow-600 px-3 py-3 flex items-center gap-2.5 m-2";
 
     function handleFormSubject(formData){
         const newSubject = formData.get('subjectCode');
@@ -13,11 +13,11 @@ export function SubjectForm(props){
         const newType = formData.get('subjectType');
         const newInternalMarks = formData.get('subjectInternalMark');
         if (newType === 'I' && (newInternalMarks > 50 || newInternalMarks < 0)){
-            setErrorMessage((prevErrorMessage) => prevErrorMessage + 'FILL IN VALID INTERNAL MARKS');
+            setErrorMessage('FILL IN VALID INTERNAL MARKS');
             return;
         }
         else if (newType === 'T' && (newInternalMarks > 40 || newInternalMarks < 0)){
-            setErrorMessage((prevErrorMessage) => prevErrorMessage + 'FILL IN VALID INTERNAL MARKS');
+            setErrorMessage('FILL IN VALID INTERNAL MARKS');
             return;
         }
         else{
@@ -35,8 +35,8 @@ export function SubjectForm(props){
     }
     
     return (
-        <main>
-            <form action = {handleFormSubject} className = "bg-slate-900 border-2 border-slate-300 rounded-lg p-5 flex flex-col gap-4 w-150 m-auto my-12">
+        <section>
+            <form action = {handleFormSubject} className = "bg-slate-900 border-2 border-slate-300 rounded-lg p-5 flex flex-col gap-4 w-162 mr-auto">
                 <label className = {labelStyles}>
                     Enter Subject Name/Code : <input type = "text" placeholder = "e.g. Calculus / 23MAT203" name = "subjectCode" required className = {inputStyles}/>
                 </label>
@@ -54,7 +54,7 @@ export function SubjectForm(props){
                 </label>
                 <button type = "submit" className = "bg-blue-600 text-white border-none rounded-lg py-2 hover:bg-blue-800"> + Add Subject</button>
             </form>
-        {(!errorMessage) ? '' : <p className="text-red-500" >{errorMessage}</p>}
-        </main> 
+        {(!errorMessage) ? '' : <p className="text-red-500 text-center text-2xl" >{errorMessage}</p>}
+        </section> 
     );
 }

@@ -2,9 +2,16 @@
 
 *{
   font-family:Arial, Helvetica, sans-serif;
+  box-sizing:border-box;
 }
 body{
-  background-color:black;
-  color:white;
+  background: linear-gradient(
+        to bottom,
+        #162830,
+        #0F1C24,
+        #0A1318
+    );
+  /*background-color: #0B141C;*/
+  color: #EAF6FF;
 }
 
