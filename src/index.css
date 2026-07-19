@@ -3,19 +3,8 @@
 *{
   font-family:Arial, Helvetica, sans-serif;
 }
-
-form {
-  border:2px solid rgb(1, 31, 76);
-  border-radius:5px;
-  padding:20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 300px;
+body{
+  background-color:black;
+  color:white;
 }
 
-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}

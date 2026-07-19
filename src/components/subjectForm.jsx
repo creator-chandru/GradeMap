@@ -4,6 +4,9 @@ import { SubjectList } from './subjectList';
 export function SubjectForm(props){
     const [errorMessage, setErrorMessage] = useState('');
 
+    const inputStyles = "bg-state-900 text-yellow-400 placeholder:text-yellow-400 rounded-lg px-4 py-3 border border-slate-700" ;
+    const labelStyles = "text-yellow-600 px-3 py-3 flex items-center gap-2.5 m-2";
+
     function handleFormSubject(formData){
         const newSubject = formData.get('subjectCode');
         const newCredit = formData.get('subjectCredit');
@@ -33,23 +36,23 @@ export function SubjectForm(props){
     
     return (
         <main>
-            <form action = {handleFormSubject}>
-            <label>
-                Enter Subject Name/Code : <input type = "text" placeholder = "e.g. Calculus / 23MAT203" name = "subjectCode" required/>
+            <form action = {handleFormSubject} className = "bg-slate-900 border-2 border-slate-300 rounded-lg p-5 flex flex-col gap-4 w-150">
+            <label className = {labelStyles}>
+                Enter Subject Name/Code : <input type = "text" placeholder = "e.g. Calculus / 23MAT203" name = "subjectCode" required className = {inputStyles}/>
             </label>
             
-            <label>
-                Enter Subject Credits : <input type = "number" step="0.1" placeholder = "e.g. 3" name = "subjectCredit" required />
+            <label className = {labelStyles}>
+                Enter Subject Credits : <input type = "number" step="0.1" placeholder = "e.g. 3" name = "subjectCredit" required className = {inputStyles} />
             </label>
-            <label>
+            <label className = {labelStyles}>
                 Choose Subject Type : 
-                Integrated Course<input type = "radio" name = "subjectType" value = "I" required/>
+                Integrated Course<input type = "radio" name = "subjectType" value = "I" required className = {inputStyles}/>
                 Theory Course<input type = "radio" name = "subjectType" value = "T" />
             </label>
-            <label>
-                Enter Subject's INTERNAL MARKS : <input type="number" placeholder = "e.g. 35" name="subjectInternalMark" required />
+            <label className = {labelStyles}>
+                Enter Subject's INTERNAL MARKS : <input type="number" placeholder = "e.g. 35" name="subjectInternalMark" required className = {inputStyles} />
             </label>
-            <button type = "submit"> + Add Subject</button>
+            <button type = "submit" className = "bg-blue-600 text-white border-none rounded-lg py-2 hover:bg-blue-800"> + Add Subject</button>
         </form>
         {(!errorMessage) ? '' : <p className="text-red-500" >{errorMessage}</p>}
         </main> 
