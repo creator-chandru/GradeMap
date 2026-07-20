@@ -10,13 +10,13 @@ export function App() {
   const [selectedSubject, setSelectedSubject] = useState('');
   return (
     <>
-      <main className = "flex flex-row gap-3 my-12">
+      <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
         <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
         {
           subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
         }
       </main>
-      <button type="button" onClick = {() => setTable(true)} className = " bg-blue-600 p-4 border-none rounded-xl text-xl font-bold mt-2 block m-auto">Check Required Marks</button>
+      <button type="button" onClick = {() => setTable(true)} className = " bg-blue-600 p-4 border-none rounded-xl text-xl font-bold mt-2 block m-auto fixed bottom-4 md:static ">Check Required Marks</button>
       {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject} setSelectedSubject = {setSelectedSubject}/>}
       {table && (selectedSubject || subjectsList[0]) && <MarksEstimator selectedSubject = {selectedSubject || subjectsList[0]}/>}
     </>
