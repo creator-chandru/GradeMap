@@ -36,7 +36,7 @@ export function SubjectForm(props){
     
     return (
         <section>
-            <form action = {handleFormSubject} className = "bg-slate-900 border-2 border-slate-300 rounded-lg p-5 flex flex-col gap-4 w-162 mr-auto">
+            <form action = {handleFormSubject} className = "bg-slate-900/70 backdrop-blur-xl border-3 border-slate-700/50 rounded-3xl shadow-2xl p-5 flex flex-col gap-4 w-162 mr-auto">
                 <label className = {labelStyles}>
                     Enter Subject Name/Code : <input type = "text" placeholder = "e.g. Calculus / 23MAT203" name = "subjectCode" required className = {inputStyles}/>
                 </label>
