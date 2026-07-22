@@ -52,7 +52,7 @@ export function SubjectForm(props){
                 <label className = {labelStyles} >
                     Enter Subject's INTERNAL MARKS : <input type="number" placeholder = "e.g. 35" name="subjectInternalMark" required className = {inputStyles} />
                 </label>
-                <button type = "submit" className = "bg-blue-600 text-white border-none rounded-lg py-2 hover:bg-blue-800"> + Add Subject</button>
+                <button type = "submit" className = "bg-blue-600 text-white cursor-pointer border-none rounded-lg py-2 hover:bg-blue-800"> + Add Subject</button>
             </form>
         {(!errorMessage) ? '' : <p className="text-red-500 text-center text-2xl" >{errorMessage}</p>}
         </section> 

@@ -19,7 +19,7 @@ export function SubjectTable(props){
                     <td>{subject.subjectCode}</td>
                     <td>{subject.subjectCredit}</td>
                     <td>{subject.subjectType}</td>
-                    <td><select name="grade" id = "grade" defaultValue="A" onChange = {(e)=>{printDesiredGrade(subject.subjectCode,e.target.value)}}>
+                    <td><select name="grade" defaultValue="A" onChange = {(e)=>{printDesiredGrade(subject.subjectCode,e.target.value)}}>
                         <option value = "S">S</option>
                         <option value = "A+">A+</option>
                         <option value = "A">A</option>
