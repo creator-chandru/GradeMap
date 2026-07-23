@@ -7,8 +7,8 @@ export function ExtraSubjectsForm(props){
         console.log(newGrade);
         const newSubmission = {
             subjectCode : newSubject,
-            subjectCredit : newCredit,
-            desiredGrade : newGrade
+            subjectCredit : Number(newCredit),
+            desiredGrade : newGrade 
         };
         props.setExtraSubjectsList((prevExtraSubjectsList)=>{
             return [...prevExtraSubjectsList, newSubmission];

@@ -23,7 +23,7 @@ export function SubjectForm(props){
         else{
             const newSubmission = {
                 subjectCode : newSubject,
-                subjectCredit : newCredit,
+                subjectCredit : Number(newCredit),
                 subjectType : newType,
                 subjectInternalMarks : newInternalMarks 
             };

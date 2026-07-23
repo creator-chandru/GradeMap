@@ -42,14 +42,14 @@ export function gradePointsFinder(gradeString){
 
 export function generateSgpa(existingSubjects, newSubjects){
     const semesterCreditPoints = existingSubjects.reduce((sum,subj) => {
-        return sum + (gradePointsFinder(subj.grade) * subj.credit);
+        return sum + (gradePointsFinder((subj.desiredGrade) || 'A') * subj.subjectCredit);
     },0) + newSubjects.reduce((sum,subj)=>{
-        return sum + (gradePointsFinder(subj.grade) * subj.credit);
+        return sum + (gradePointsFinder((subj.desiredGrade) || 'S') * subj.subjectCredit);
     },0);
     const semesterCredits = existingSubjects.reduce((creditSum,subj) =>{
-        return creditSum + subj.credit;
+        return creditSum + subj.subjectCredit;
     },0) + newSubjects.reduce((creditSum,subj) =>{
-        return creditSum + subj.credit;
+        return creditSum + subj.subjectCredit;
     },0);
 
     const sgpa = ( semesterCreditPoints / semesterCredits ).toFixed(2);
