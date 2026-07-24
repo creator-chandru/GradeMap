@@ -6,6 +6,7 @@ import { SubjectTable } from './components/subjectsTable';
 import { MarksEstimator } from './components/marksEstimator';
 import { ExtraSubjectsForm } from './components/extraForm';
 import { generateSgpa } from './logic/semester_gpa'
+import { SgpaEstimator } from './components/sgpaEstimator';
 export function App() {
   const [subjectsList, setSubjectsList] = useState([]);
   const [table, setTable] = useState(false);
@@ -13,6 +14,7 @@ export function App() {
   const [estimateSgpa , setEstimateSgpa] = useState(false);
   const [addExtraSubjects , setAddExtraSubjects] = useState(false);
   const [extraSubjectsList , setExtraSubjectsList] = useState([]);
+  const [estimatedSGPA , setEstimatedSGPA] = useState('');
   return (
     <>
       <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
@@ -30,10 +32,9 @@ export function App() {
         <button className = "bg-red-900 p-4 cursor-pointer" onClick = {() => {setAddExtraSubjects(true)}}> + Add Extra Subjects</button> 
         <p>"Don't forget lab-only or non-graded courses for an accurate SGPA"</p>  
       </div>}
-      {estimateSgpa && <button type = "button" className = "bg-red-400 p-4 cursor-pointer" onClick = {() => {console.log(generateSgpa(subjectsList , extraSubjectsList))}}>Estimate SGPA</button>}
-
       {addExtraSubjects && <ExtraSubjectsForm extraSubjectsList = {extraSubjectsList} setExtraSubjectsList = {setExtraSubjectsList}/> }
-      
+      {estimateSgpa && <button type = "button" className = "bg-red-400 p-4 cursor-pointer" onClick = {() => {setEstimatedSGPA(generateSgpa(subjectsList , extraSubjectsList))}}>Estimate SGPA</button>}
+      {(estimateSgpa && estimatedSGPA) && <SgpaEstimator estimatedSGPA = {estimatedSGPA} />}
     </>
   );
 }
