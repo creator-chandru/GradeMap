@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { useEffect } from 'react';
 import { calculateRequiredMark } from "./logic/grades";
 import { SubjectForm } from "./components/subjectForm";
 import { SubjectList } from "./components/subjectList";
@@ -20,7 +21,17 @@ export function App() {
   const [estimatedSGPA , setEstimatedSGPA] = useState('');
   const [estimateCgpa, setEstimateCgpa] = useState(false);
   const [estimatedCGPA, setEstimatedCGPA] = useState('');
+  const saved = localStorage.getItem('grademap-subjects');
+  useEffect(() => {
+    if(saved){
+      setSubjectsList(JSON.parse(saved));
+    }
+  },[]);
 
+  useEffect(() =>{
+      localStorage.setItem('grademap-subjects',JSON.stringify(subjectsList));
+  },[subjectsList]);
+    
   return (
     <>
       <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
@@ -29,6 +40,7 @@ export function App() {
           subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
         }
       </main>
+      <button onClick = {() => {setSubjectsList([]);localStorage.removeItem('grademap-subjects');}}>Reset</button>
       <button type="button" onClick = {() => {setTable(true); setEstimateSgpa(true)}} className = " bg-blue-600 p-4 cursor-pointer border-none rounded-xl text-xl font-bold mt-2 block m-auto bottom-4 md:static ">Check Required Marks</button>
       {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject} setSelectedSubject = {setSelectedSubject} setSubjectsList = {setSubjectsList}/>}
       {table && (selectedSubject || subjectsList[0]) && <MarksEstimator selectedSubject = {selectedSubject || subjectsList[0]}/>}
