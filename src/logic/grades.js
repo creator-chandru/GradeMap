@@ -120,5 +120,3 @@ export function calculateRequiredMark(internal , type){
     
     return mixedGrades;
 }
-
-console.log(calculateRequiredMark(50,'i'));

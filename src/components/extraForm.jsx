@@ -4,7 +4,6 @@ export function ExtraSubjectsForm(props){
         const newSubject = formData.get('extraSubjectCode');
         const newCredit = formData.get('extraSubjectCredit');
         const newGrade = formData.get('extraGrade');
-        console.log(newGrade);
         const newSubmission = {
             subjectCode : newSubject,
             subjectCredit : Number(newCredit),
