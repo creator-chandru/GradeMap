@@ -7,6 +7,9 @@ import { MarksEstimator } from './components/marksEstimator';
 import { ExtraSubjectsForm } from './components/extraForm';
 import { generateSgpa } from './logic/semester_gpa'
 import { SgpaEstimator } from './components/sgpaEstimator';
+import { CgpaForm } from './components/CgpaForm';
+import { CgpaEstimator } from './components/cgpaEstimator';
+
 export function App() {
   const [subjectsList, setSubjectsList] = useState([]);
   const [table, setTable] = useState(false);
@@ -15,6 +18,9 @@ export function App() {
   const [addExtraSubjects , setAddExtraSubjects] = useState(false);
   const [extraSubjectsList , setExtraSubjectsList] = useState([]);
   const [estimatedSGPA , setEstimatedSGPA] = useState('');
+  const [estimateCgpa, setEstimateCgpa] = useState(false);
+  const [estimatedCGPA, setEstimatedCGPA] = useState('');
+
   return (
     <>
       <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
@@ -35,6 +41,9 @@ export function App() {
       {addExtraSubjects && <ExtraSubjectsForm extraSubjectsList = {extraSubjectsList} setExtraSubjectsList = {setExtraSubjectsList}/> }
       {estimateSgpa && <button type = "button" className = "bg-red-400 p-4 cursor-pointer" onClick = {() => {setEstimatedSGPA(generateSgpa(subjectsList , extraSubjectsList))}}>Estimate SGPA</button>}
       {(estimateSgpa && estimatedSGPA) && <SgpaEstimator estimatedSGPA = {estimatedSGPA} />}
+      {estimatedSGPA && <button type="button" onClick = {() => setEstimateCgpa(true)}>Calculate CGPA</button>}
+      {estimateCgpa && <CgpaForm setEstimatedCGPA = {setEstimatedCGPA} estimatedSGPA = {estimatedSGPA} />}
+      {(estimateCgpa && estimatedCGPA) && <CgpaEstimator estimatedCGPA = {estimatedCGPA}/>}
     </>
   );
 }
