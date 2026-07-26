@@ -10,6 +10,7 @@ import { generateSgpa } from './logic/semester_gpa'
 import { SgpaEstimator } from './components/sgpaEstimator';
 import { CgpaForm } from './components/CgpaForm';
 import { CgpaEstimator } from './components/cgpaEstimator';
+import { Header } from './components/Header';
 
 export function App() {
   const [subjectsList, setSubjectsList] = useState([]);
@@ -34,6 +35,7 @@ export function App() {
     
   return (
     <>
+      <Header />
       <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
         <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
         {
