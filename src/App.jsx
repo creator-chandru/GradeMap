@@ -36,15 +36,17 @@ export function App() {
   return (
     <>
       <Header />
-      <main className = "flex flex-col gap-3 my-12 md:flex-row gap-6">
-        <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
+      <main className = "flex flex-col md:flex-row gap-6 md:gap-10 max-w-6xl mx-auto p-4 md:p-8">
+        <div>
+          <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
+          <button type="button" onClick = {() => {setTable(true); setEstimateSgpa(true)}} className = "sticky bottom-4 z-10 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg py-3 mt-4 transition-colors shadow-lg">Check Required Marks</button>
+        </div>
         {
           subjectsList.length > 0 && <SubjectList subjects = {subjectsList}/>
         }
       </main>
-      <button onClick = {() => {setSubjectsList([]);localStorage.removeItem('grademap-subjects');}}>Reset</button>
-      <button type="button" onClick = {() => {setTable(true); setEstimateSgpa(true)}} className = " bg-blue-600 p-4 cursor-pointer border-none rounded-xl text-xl font-bold mt-2 block m-auto bottom-4 md:static ">Check Required Marks</button>
-      {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject} setSelectedSubject = {setSelectedSubject} setSubjectsList = {setSubjectsList}/>}
+      
+      {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject || subjectsList[0]} setSelectedSubject = {setSelectedSubject} setSubjectsList = {setSubjectsList}/>}
       {table && (selectedSubject || subjectsList[0]) && <MarksEstimator selectedSubject = {selectedSubject || subjectsList[0]}/>}
 
       {estimateSgpa && 

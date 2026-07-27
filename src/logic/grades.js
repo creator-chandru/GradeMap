@@ -106,13 +106,10 @@ export function calculateRequiredMark(internal , type){
         else if(raw_endsem_mark > 80){
             expectedResult.possibility = 'Achievable with hard work';
         }
-        else if(raw_endsem_mark > 60){
-            expectedResult.possibility = 'Achievable';
-        }
         else if(raw_endsem_mark > 45){
             expectedResult.possibility = 'Easily Achievable';
         }else{
-            expectedResult.possibility = 'Already Achieved, if you pass the endsemester examinations';
+            expectedResult.possibility = 'Already Achieved, if you pass';
         }
         return expectedResult;
         

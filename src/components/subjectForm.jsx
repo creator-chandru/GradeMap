@@ -4,8 +4,8 @@ import { SubjectList } from './subjectList';
 export function SubjectForm(props){
     const [errorMessage, setErrorMessage] = useState('');
 
-    const inputStyles = "bg-state-900 text-yellow-400 placeholder:text-yellow-400 rounded-lg px-4 py-3 border border-slate-700" ;
-    const labelStyles = "text-lg text-yellow-600 px-3 py-3 flex items-center gap-2.5 m-2";
+    const inputStyles = "bg-slate-800 border border-white/10 rounded-lg px-3 py-2 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md: text-xl" ;
+    const labelStyles = "flex flex-col gap-1 text-sm text-slate-400 md:text-2xl";
 
     function handleFormSubject(formData){
         const newSubject = formData.get('subjectCode');
@@ -35,8 +35,8 @@ export function SubjectForm(props){
     }
     
     return (
-        <section id="subject-form">
-            <form action = {handleFormSubject} className = "bg-slate-900/70 backdrop-blur-xl border-3 border-slate-700/50 rounded-3xl shadow-2xl p-5 flex flex-col gap-4 w-162 mr-auto">
+        <section id="subject-form" className = "bg-slate-900 border border-white/10 rounded-2xl p-5 w-full max-w-sm mx-auto md:max-w-xl md:p-8 md:ml-8 md:min-h-xl ">
+            <form action = {handleFormSubject} className = "flex flex-col gap-4">
                 <label className = {labelStyles}>
                     Enter Subject Name/Code : <input type = "text" placeholder = "e.g. Calculus / 23MAT203" name = "subjectCode" required className = {inputStyles}/>
                 </label>
@@ -45,16 +45,19 @@ export function SubjectForm(props){
                     Enter Subject Credits : <input type = "number" step="0.1" placeholder = "e.g. 3" name = "subjectCredit" required className = {inputStyles} />
                 </label>
                 <label className = {labelStyles}>
-                    Choose Subject Type : 
-                    Integrated Course<input type = "radio" name = "subjectType" value = "I" required className = "accent-yellow-300 w-5 h-5"/>
-                    Theory Course<input type = "radio" name = "subjectType" value = "T" className = "accent-yellow-300 w-5 h-5"/>
+                    Choose Subject Type :
+                    <div className = "flex items-center gap-6">
+                        Integrated Course<input type = "radio" name = "subjectType" value = "I" required className = "accent-yellow-300 w-5 h-5"/>
+                        Theory Course<input type = "radio" name = "subjectType" value = "T" className = "accent-yellow-300 w-5 h-5"/>
+                    </div>
                 </label>
                 <label className = {labelStyles} >
                     Enter Subject's INTERNAL MARKS : <input type="number" placeholder = "e.g. 35" name="subjectInternalMark" required className = {inputStyles} />
                 </label>
-                <button type = "submit" className = "bg-blue-600 text-white cursor-pointer border-none rounded-lg py-2 hover:bg-blue-800"> + Add Subject</button>
+                <button type = "submit" className = "bg-blue-600 text-white cursor-pointer border-none rounded-lg py-2 hover:bg-blue-800 transition-colors"> + Add Subject</button>
             </form>
         {(!errorMessage) ? '' : <p className="text-red-500 text-center text-2xl" >{errorMessage}</p>}
+        <button onClick = {() => {props.setSubjectsList([]);localStorage.removeItem('grademap-subjects');}} className = "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4 mt-2 transition-colors cursor-pointer">Reset</button>
         </section> 
     );
 }
