@@ -49,15 +49,17 @@ export function App() {
       {(table && subjectsList.length >0) && <SubjectTable subjects = {subjectsList} selectedSubject = {selectedSubject || subjectsList[0]} setSelectedSubject = {setSelectedSubject} setSubjectsList = {setSubjectsList}/>}
       {table && (selectedSubject || subjectsList[0]) && <MarksEstimator selectedSubject = {selectedSubject || subjectsList[0]}/>}
 
-      {estimateSgpa && 
-      <div>
-        <button className = "bg-red-900 p-4 cursor-pointer" onClick = {() => {setAddExtraSubjects(true)}}> + Add Extra Subjects</button> 
-        <p>"Don't forget lab-only or non-graded courses for an accurate SGPA"</p>  
-      </div>}
+      <div className="mt-5 flex items-start gap-2.5 w-full md:mt-6 md:gap-4">
+        {estimateSgpa && 
+        <div className = "flex-1 flex flex-col">
+          <button className = "flex-1 rounded-xl border border-amber-400/40 bg-gradient-to-br from-amber-700 via-amber-600 to-yellow-700 px-4 py-3 text-sm font-semibold text-amber-50 shadow-lg shadow-amber-900/40 transition-all duration-300 hover:from-amber-600 hover:via-amber-500 hover:to-yellow-600 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/25 active:scale-[0.98] md:px-7 md:py-5 md:text-lg md:rounded-2xl" onClick = {() => {setAddExtraSubjects(true)}}> + Add Extra Subjects</button> 
+          <p className = "mt-1.5 text-center text-[11px] leading-relaxed font-medium text-red-400 md:text-lg md:mt-2">"Don't forget lab-only or non-graded courses for an accurate SGPA"</p>  
+        </div>}
+        {estimateSgpa && <button type = "button" className = "flex-1 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 shadow-lg shadow-blue-900/30 hover:from-blue-500 hover:to-blue-400 hover:shadow-blue-500/30 active:scale-[0.98] md:px-8 md:py-5 md:text-lg md:rounded-2xl" onClick = {() => {setEstimatedSGPA(generateSgpa(subjectsList , extraSubjectsList));{document.getElementById('extraSubject-form').scrollIntoView({ behavior: 'smooth' })}}}>Estimate SGPA</button>}
+      </div>
       {addExtraSubjects && <ExtraSubjectsForm extraSubjectsList = {extraSubjectsList} setExtraSubjectsList = {setExtraSubjectsList}/> }
-      {estimateSgpa && <button type = "button" className = "bg-red-400 p-4 cursor-pointer" onClick = {() => {setEstimatedSGPA(generateSgpa(subjectsList , extraSubjectsList))}}>Estimate SGPA</button>}
       {(estimateSgpa && estimatedSGPA) && <SgpaEstimator estimatedSGPA = {estimatedSGPA} />}
-      {estimatedSGPA && <button type="button" onClick = {() => setEstimateCgpa(true)}>Calculate CGPA</button>}
+      {estimatedSGPA && <button type="button" onClick = {() => setEstimateCgpa(true)} className = "mt-6 block mx-auto md:mt-7 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 px-8 py-3 text-sm md:text-base font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:scale-105 hover:from-amber-300 hover:to-yellow-400 active:scale-95">Calculate CGPA</button>}
       {estimateCgpa && <CgpaForm setEstimatedCGPA = {setEstimatedCGPA} estimatedSGPA = {estimatedSGPA} />}
       {(estimateCgpa && estimatedCGPA) && <CgpaEstimator estimatedCGPA = {estimatedCGPA}/>}
     </>

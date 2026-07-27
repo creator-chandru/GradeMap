@@ -10,15 +10,15 @@ export function CgpaForm(props){
         props.setEstimatedCGPA(newCGPA);
     }
     return (
-        <section>
-            <form action = {handleCumulativeInputs}>
-                <label>
-                    Enter Current CGPA <input type="number" step = "0.01" placeholder = "e.g. 9.77" name = "Cumulativegpa" required />
+        <section className = "mt-8 rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 md:p-8 shadow-xl shadow-slate-950/40">
+            <form action = {handleCumulativeInputs} className = "space-y-6">
+                <label className="block text-sm font-semibold uppercase tracking-wider text-slate-400 md:text-base">
+                    Enter Current CGPA <input type="number" step = "0.01" placeholder = "e.g. 9.77" name = "Cumulativegpa" required className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20" />
                 </label>
-                <label>
-                    Enter total Credits: <input type="number" placeholder = "e.g. 69" name = "totalCredits" required />
+                <label className="block text-sm font-semibold uppercase tracking-wider text-slate-400 md:text-base">
+                    Enter total Credits: <input type="number" placeholder = "e.g. 69" name = "totalCredits" required className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20"/>
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" className="w-full rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 py-3 font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:scale-[1.02] hover:from-amber-300 hover:to-yellow-400 active:scale-95">Submit</button>
             </form>
         </section>
     );
