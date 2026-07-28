@@ -59,7 +59,7 @@ export function App() {
       </div>
       {addExtraSubjects && <ExtraSubjectsForm extraSubjectsList = {extraSubjectsList} setExtraSubjectsList = {setExtraSubjectsList}/> }
       {(estimateSgpa && estimatedSGPA) && <SgpaEstimator estimatedSGPA = {estimatedSGPA} />}
-      {estimatedSGPA && <button type="button" onClick = {() => setEstimateCgpa(true)} className = "mt-6 block mx-auto md:mt-7 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 px-8 py-3 text-sm md:text-base font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:scale-105 hover:from-amber-300 hover:to-yellow-400 active:scale-95">Calculate CGPA</button>}
+      {estimatedSGPA && <button type="button" onClick = {() => setEstimateCgpa(true)} className = "mt-6 block mx-auto md:mt-7 rounded-xl border-amber-400/40 bg-gradient-to-br from-amber-700 via-amber-600 to-yellow-700 px-8 py-3 text-sm md:text-base font-bold text-amber-50 shadow-lg shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:via-amber-500 hover:to-yellow-600 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/25 active:scale-95">Calculate CGPA</button>}
       {estimateCgpa && <CgpaForm setEstimatedCGPA = {setEstimatedCGPA} estimatedSGPA = {estimatedSGPA} />}
       {(estimateCgpa && estimatedCGPA) && <CgpaEstimator estimatedCGPA = {estimatedCGPA}/>}
     </>
