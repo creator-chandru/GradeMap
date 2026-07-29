@@ -1,7 +1,7 @@
 import { generateSgpa } from "../logic/semester_gpa"
 export function SgpaEstimator(props){
     return (
-        <div className="mt-10 rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800/90 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-xl ring-1 ring-slate-700/30 text-center md:mt-14 md:p-10" id="extraSubject-form">
+        <div id="sgpa-block" className="mt-10 rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800/90 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-xl ring-1 ring-slate-700/30 text-center md:mt-14 md:p-10">
 
             <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-slate-400 md:text-base">

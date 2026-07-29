@@ -8,9 +8,14 @@ export function CgpaForm(props){
         
         const newCGPA = generateCgpa(currentCGPA,totalCredits,props.estimatedSGPA);
         props.setEstimatedCGPA(newCGPA);
+        setTimeout(() => {
+            document.querySelector('#cgpa-block')?.scrollIntoView({
+                behavior: "smooth"
+            });
+        },100);
     }
     return (
-        <section className = "mt-8 rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 md:p-8 shadow-xl shadow-slate-950/40">
+        <section id = "cgpa-form" className = "mt-8 rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 md:p-8 shadow-xl shadow-slate-950/40">
             <form action = {handleCumulativeInputs} className = "space-y-6">
                 <label className="block text-sm font-semibold uppercase tracking-wider text-slate-400 md:text-base">
                     Enter Current CGPA <input type="number" step = "0.01" placeholder = "e.g. 9.77" name = "Cumulativegpa" required className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20" />

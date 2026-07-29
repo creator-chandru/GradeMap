@@ -34,7 +34,7 @@ export function SubjectTable(props){
         });
     }
     return (
-        <div className = "w-full md:w-[65%] overflow-x-auto rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-md shadow-xl shadow-slate-950/40">
+        <div id = "subject-table"className = "w-full overflow-x-auto rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-md shadow-xl shadow-slate-950/40">
             <table className = "w-full text-left border-collapse"> 
                 <thead>
                     <tr className = "border-b border-slate-700/60 bg-slate-800/50">
