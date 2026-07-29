@@ -52,13 +52,6 @@ export function App() {
     }
   }, [table]);
 
-  /*useEffect(() =>{
-    if(addExtraSubjects){
-      document.querySelector('#extra-subject-form')?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  }, [addExtraSubjects]);*/
   return (
     <>
       <Header />
