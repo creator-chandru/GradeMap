@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 import { calculateRequiredMark } from "./logic/grades";
 import { SubjectForm } from "./components/subjectForm";
 import { SubjectList } from "./components/subjectList";
@@ -25,11 +26,13 @@ export function App() {
   const [estimatedCGPA, setEstimatedCGPA] = useState('');
   const savedSubjects = localStorage.getItem('grademap-subjects');
   const savedExtraSubjects = localStorage.getItem('grademap-extra-subjects');
+  
   useEffect(() => {
     if(savedSubjects){
       setSubjectsList(JSON.parse(savedSubjects));
     }
   },[]);
+
   useEffect(() => {
     if(savedExtraSubjects){
       setExtraSubjectsList(JSON.parse(savedExtraSubjects));
@@ -52,14 +55,32 @@ export function App() {
     }
   }, [table]);
 
+  const buttonRef = useRef(null);
+  const [isStuck, setIsStuck] = useState(false);
+
+  useEffect(() => {
+    const originalOffset = buttonRef.current?.offsetTop;
+
+    function handleScroll() {
+      if (window.scrollY > originalOffset && !table) {
+        setIsStuck(true);
+      } else {
+        setIsStuck(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [table]);
+
   return (
     <>
       <Header />
-      <main className = "flex flex-col md:flex-row md:items-start gap-6 md:gap-10 max-w-6xl mx-auto p-4 md:p-8">
+      <main className = "flex flex-col md:flex-row md:items-stretch gap-6 md:gap-10 max-w-6xl mx-auto p-4 md:p-8">
 
-          <div className = "w-full md:w-auto md:flex-shrink-0">
+          <div className = "w-full md:w-auto md:flex-shrink-0 flex flex-col">
               <SubjectForm subjectsList = {subjectsList} setSubjectsList = {setSubjectsList}/>
-              <button type="button" disabled={subjectsList.length === 0} onClick = {() => {setTable(true); setEstimateSgpa(true)}} className = "sticky bottom-4 z-10 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg py-3 mt-4 transition-colors shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+              <button ref = {buttonRef} type="button" disabled={subjectsList.length === 0} onClick = {() => {setTable(true); setEstimateSgpa(true)}} className = {`transition-all duration-300 ease-in-out ${isStuck ? "fixed bottom-4 inset-x-4 md:inset-x-auto md:w-full" : "w-full mt-4"} z-20 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg py-3 transition-colors shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}>
                 Check Required Marks
               </button>
           </div>
