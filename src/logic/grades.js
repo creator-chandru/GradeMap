@@ -43,7 +43,6 @@ export function getGradeFromTotal(total){
     };
 
     if(total > 100 || total < 0){
-        console.log('Enter valid marks');
         return;
     }
     if (total >= 91){
@@ -80,7 +79,6 @@ export function getGradeFromTotal(total){
     return grades;
 }
 
-console.log(getGradeFromTotal(100));
 
 export function calculateRequiredMark(internal , type){
     
@@ -100,7 +98,6 @@ export function calculateRequiredMark(internal , type){
             endsem_scaled_mark = 50;
         }
         else{
-            console.log("Enter valid course type");
             return null;
         }
         const raw_endsem_mark = ((required_endsem_mark/endsem_scaled_mark) * 100);

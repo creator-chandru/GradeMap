@@ -1,7 +1,6 @@
 export function Header(){
     return (
         <header className = "flex flex-col justify-center items-center h-screen ">
-            <p className = "font-sans text-md font-medium text-center text-blue-400">Grademap</p>
             <div className = "p-5">
                 <p className = "font-sans text-6xl font-bold text-center text-blue-400">Grademap</p>
                 <p className = "font-sans text-4xl text-yellow-500 text-center mt-1">See. Assess. Predict.</p>

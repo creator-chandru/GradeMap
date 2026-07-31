@@ -3,7 +3,6 @@ export function ExtraSubjectList(props){
     const divStyle = "bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-xl p-4 flex flex-col gap-1.5 w-full mt-4 md:w-[calc(33%-0.5rem)] shadow-lg transition-all duration-200 hover:border-amber-400/30 hover:bg-slate-800/70 relative";
 
     function removeSubject(selectedSubject){
-        console.log(selectedSubject);
         const updatedSubjectsList = props.extraSubjectsList.filter(subject => subject.subjectCode !== selectedSubject);
         props.setExtraSubjectsList(updatedSubjectsList);
     }
