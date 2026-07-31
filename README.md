@@ -33,9 +33,9 @@ React.js · Tailwind CSS · Vite · local Storage
 
 ## Design Decisions
 
-- **The calculation engine is entirely separated from the UI. ** Every grade calculation, SGPA, and CGPA function is plain, framework-free JavaScript, independently testable and reusable regardless of the interface built around it.
-- **SGPA estimation uses forward calculation, not reverse-solving. ** A single target SGPA has many valid combinations of per-subject grades. Rather than guessing at "the" combination, GradeMap lets students set a realistic grade per subject and calculates the resulting SGPA, which is both mathematically unambiguous and closer to how students actually reason about their semester.
-- **The grading slab is currently configured for a specific university regulation. ** This was a deliberate scope decision to ship a fully working v1; the calculation engine is structured so a configurable/editable slab can be added without restructuring the core logic.
+- **The calculation engine is entirely separated from the UI.** Every grade calculation, SGPA, and CGPA function is plain, framework-free JavaScript, independently testable and reusable regardless of the interface built around it.
+- **SGPA estimation uses forward calculation, not reverse-solving.** A single target SGPA has many valid combinations of per-subject grades. Rather than guessing at "the" combination, GradeMap lets students set a realistic grade per subject and calculates the resulting SGPA, which is both mathematically unambiguous and closer to how students actually reason about their semester.
+- **The grading slab is currently configured for a specific university regulation.** This was a deliberate scope decision to ship a fully working v1; the calculation engine is structured so a configurable/editable slab can be added without restructuring the core logic.
 
 ## What's Next
 
