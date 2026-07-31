@@ -4,7 +4,7 @@
 
 A calculation tool that tells college students exactly how much marks they need to score in their end-semester exams to hit a target or desired grade — removing the guesswork and stress that comes with mid-semester internal marks.
 
-<img width="942" height="499" alt="Grademap hero-section" src="https://github.com/user-attachments/assets/0920a3dd-84a5-4e4a-99c0-ea48a68a4f2e" />
+<img width="942" height="499" alt="GradeMap hero-section" src="https://github.com/user-attachments/assets/0920a3dd-84a5-4e4a-99c0-ea48a68a4f2e" />
 
 ## The Problem
 
@@ -34,7 +34,7 @@ React.js · Tailwind CSS · Vite · local Storage
 ## Design Decisions
 
 - **The calculation engine is entirely separated from the UI. ** Every grade calculation, SGPA, and CGPA function is plain, framework-free JavaScript, independently testable and reusable regardless of the interface built around it.
-- **SGPA estimation uses forward calculation, not reverse-solving. ** A single target SGPA has many valid combinations of per-subject grades. Rather than guessing at "the" combination, Grademap lets students set a realistic grade per subject and calculates the resulting SGPA, which is both mathematically unambiguous and closer to how students actually reason about their semester.
+- **SGPA estimation uses forward calculation, not reverse-solving. ** A single target SGPA has many valid combinations of per-subject grades. Rather than guessing at "the" combination, GradeMap lets students set a realistic grade per subject and calculates the resulting SGPA, which is both mathematically unambiguous and closer to how students actually reason about their semester.
 - **The grading slab is currently configured for a specific university regulation. ** This was a deliberate scope decision to ship a fully working v1; the calculation engine is structured so a configurable/editable slab can be added without restructuring the core logic.
 
 ## What's Next
@@ -46,8 +46,8 @@ React.js · Tailwind CSS · Vite · local Storage
 ## Local Setup
 
 \`\`\`bash
-git clone 
-cd grademap
+git clone https://github.com/creator-chandru/GradeMap
+cd GradeMap
 npm install
 npm run dev
 \`\`\`
