@@ -17,10 +17,15 @@ export const gradeSlab = [
     {
         grade_rep: 'B+',
         gradePoints: 7,
-        minimumMarks: 61
+        minimumMarks: 66
     },
     {
         grade_rep: 'B',
+        gradePoints: 6.5,
+        minimumMarks: 61
+    },
+    {
+        grade_rep: 'C+',
         gradePoints: 6,
         minimumMarks: 56
     },
@@ -28,7 +33,7 @@ export const gradeSlab = [
         grade_rep: 'C',
         gradePoints: 5,
         minimumMarks: 50
-    },
+    }
 ];
 
 export function getGradeFromTotal(total){
@@ -53,15 +58,19 @@ export function getGradeFromTotal(total){
         grades.gradePoints = 8;
         grades.grade = 'A';
     }
-    else if (total >=61){
+    else if (total >=66){
         grades.gradePoints = 7;
         grades.grade = 'B+';
     }
-    else if (total >=56){
-        grades.gradePoints = 6;
+    else if (total >=61){
+        grades.gradePoints = 6.5;
         grades.grade = 'B';
     }
-    else if (total >=50){
+    else if (total >=56){
+        grades.gradePoints = 6;
+        grades.grade = 'C+';
+    }
+    else if(total >=50){
         grades.gradePoints = 5;
         grades.grade = 'C';
     }
