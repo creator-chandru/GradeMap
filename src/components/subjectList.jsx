@@ -8,7 +8,7 @@ export function SubjectList(props){
     function addToList(subjects){
         return subjects.map((subj) => {
             return <div key = {subj.subjectCode} className = {divStyle}>
-                        <button className = "absolute top-2 right-2 w-7 h-7 rounded-md flex items-center justify-center text-slate-300 bg-slate-700/50 hover:bg-red-500 hover:text-white transition-all duration-200" onClick = {() => removeSubject(subj.subjectCode)}> - </button>
+                        <button className = "absolute top-2 right-2 w-7 h-7 rounded-md flex items-center justify-center text-slate-300 bg-slate-700/50 hover:bg-red-500 hover:text-white transition-all duration-200 cursor-pointer" onClick = {() => removeSubject(subj.subjectCode)}> - </button>
                         <span className = "text-amber-400 font-semibold text-2xl">{subj.subjectCode}</span>  
                         <span className = "text-slate-300 text-xl">Credits  : {subj.subjectCredit}</span> 
                         <span className = "text-slate-300 text-xl">Subject Type: {subj.subjectType}</span> 
