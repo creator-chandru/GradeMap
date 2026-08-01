@@ -121,7 +121,7 @@ export function App() {
 
       {(estimateSgpa && estimatedSGPA) && <SgpaEstimator estimatedSGPA = {estimatedSGPA} />}
 
-      {estimatedSGPA && <button type="button" onClick = {() => {setEstimateCgpa(true); setTimeout(()=>{document.querySelector('#cgpa-form').scrollIntoView({behavior : "smooth" });},0);}} className = "mt-6 block mx-auto md:mt-7 rounded-xl border-amber-400/40 bg-gradient-to-br from-amber-700 via-amber-600 to-yellow-700 px-8 py-3 text-sm md:text-base font-bold text-amber-50 shadow-lg shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:via-amber-500 hover:to-yellow-600 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/25 active:scale-95">
+      {estimatedSGPA && <button type="button" onClick = {() => {setEstimateCgpa(true); setTimeout(()=>{document.querySelector('#cgpa-form').scrollIntoView({behavior : "smooth" });},0);}} className = "mt-6 block mx-auto md:mt-7 rounded-xl border-amber-400/40 bg-gradient-to-br from-amber-700 via-amber-600 to-yellow-700 px-8 py-3 text-sm md:text-base font-bold text-amber-50 shadow-lg shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:via-amber-500 hover:to-yellow-600 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/25 active:scale-95 cursor-pointer">
         Calculate CGPA
       </button>}
 

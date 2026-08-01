@@ -35,7 +35,7 @@ export function ExtraSubjectsForm(props){
                         <option value = "C">C</option>
                     </select>
                 </label>
-                <button type="submit" className = "w-full rounded-xl border border-blue-500/40 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 px-5 py-3 text-base font-bold text-white shadow-lg shadow-blue-900/30 transition-all duration-300 hover:border-amber-300 hover:from-blue-500 hover:via-blue-400 hover:to-blue-300 hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.98] md:h-[56px] md:text-lg">Submit</button>
+                <button type="submit" className = "w-full rounded-xl border border-blue-500/40 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 px-5 py-3 text-base font-bold text-white shadow-lg shadow-blue-900/30 transition-all duration-300 hover:border-amber-300 hover:from-blue-500 hover:via-blue-400 hover:to-blue-300 hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.98] md:h-[56px] md:text-lg cursor-pointer">Submit</button>
             </form>
         </section>
     );
