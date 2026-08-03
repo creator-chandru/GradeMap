@@ -6,6 +6,8 @@ A calculation tool that tells college students exactly how much marks they need 
 
 <img width="942" height="499" alt="GradeMap hero-section" src="https://github.com/user-attachments/assets/0920a3dd-84a5-4e4a-99c0-ea48a68a4f2e" />
 
+
+
 ## The Problem
 
 Students in internal-assessment-based grading systems often finish their internals with mid-level marks and get anxious about the marks they need to obtain in their end-semester exams to maintain a good grade. Grademap turns "what do I need on my end-semester?" from an anxious guess into an exact, calculated answer.
@@ -45,12 +47,12 @@ React.js · Tailwind CSS · Vite · local Storage
 
 ## Local Setup
 
-\`\`\`bash
+```bash
 git clone https://github.com/creator-chandru/GradeMap
 cd GradeMap
 npm install
 npm run dev
-\`\`\`
+```
 
 ## Live Demo
 https://grade-map-one.vercel.app/
